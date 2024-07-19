@@ -44,6 +44,25 @@
             text-decoration: none;
             color: #007bff;
         }
+        .features, .about {
+            padding: 50px 20px;
+        }
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 10px;
+            vertical-align: top;
+        }
+        .feature img {
+            max-width: 100%;
+            height: auto;
+        }
+        .feature h3 {
+            margin: 10px 0;
+        }
+        .about {
+            background-color: #e9ecef;
+        }
     </style>
 </head>
 <body>
@@ -56,6 +75,28 @@
         <a href="#menu">Menu</a>
         <a href="#register">Register</a>
         <a href="#login">Login</a>
+    </div>
+    <div class="features" id="features">
+        <h2>Key Features</h2>
+        <div class="feature">
+            <img src="static/feature1.jpg" alt="Feature 1 Image">
+            <h3>Feature 1: Easy Ordering</h3>
+            <p>Order your favorite meals quickly and easily with our intuitive interface.</p>
+        </div>
+        <div class="feature">
+            <img src="static/feature2.jpg" alt="Feature 2 Image">
+            <h3>Feature 2: Real-Time Updates</h3>
+            <p>Get real-time updates on order status and availability of items.</p>
+        </div>
+        <div class="feature">
+            <img src="static/feature3.jpg" alt="Feature 3 Image">
+            <h3>Feature 3: Secure Payments</h3>
+            <p>Enjoy secure and hassle-free payments through our integrated payment system.</p>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <h2>About BreakfastBuddy</h2>
+        <p>BreakfastBuddy was inspired by the need to streamline canteen management and improve the overall dining experience. Our journey began with a vision to create a user-friendly platform that simplifies ordering and payment processes. This project is part of our portfolio for Holberton School, demonstrating our commitment to developing practical solutions with real-world applications.</p>
     </div>
 </body>
 </html>
