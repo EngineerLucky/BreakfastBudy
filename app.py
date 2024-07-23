@@ -1,78 +1,46 @@
-from flask import Flask, request, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
-app = Flask(__name__)
+# Initialize Bcrypt and JWTManager
+bcrypt = Bcrypt(app)
+app.config['JWT_SECRET_KEY'] = 'your_secret_key'
+jwt = JWTManager(app)
 
-# Configurations
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///menu.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-
-# Menu Model
-class MenuItem(db.Model):
+# User Model
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.String(200), nullable=False)
-    price = db.Column(db.Float, nullable=False)
-    image_url = db.Column(db.String(200), nullable=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
 # Create the database
 with app.app_context():
     db.create_all()
 
-# Routes
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/menu', methods=['GET'])
-def get_menu():
-    menu_items = MenuItem.query.all()
-    return jsonify([item.as_dict() for item in menu_items])
-
-@app.route('/menu', methods=['POST'])
-def add_menu_item():
+# Register Route
+@app.route('/register', methods=['POST'])
+def register():
     data = request.get_json()
-    new_item = MenuItem(
-        name=data['name'],
-        description=data['description'],
-        price=data['price'],
-        image_url=data['image_url']
-    )
-    db.session.add(new_item)
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+    new_user = User(username=data['username'], password=hashed_password)
+    db.session.add(new_user)
     db.session.commit()
-    return jsonify(new_item.as_dict()), 201
+    return jsonify({'message': 'User registered successfully'}), 201
 
-@app.route('/menu/<int:item_id>', methods=['PUT'])
-def update_menu_item(item_id):
+# Login Route
+@app.route('/login', methods=['POST'])
+def login():
     data = request.get_json()
-    item = MenuItem.query.get(item_id)
-    if item:
-        item.name = data['name']
-        item.description = data['description']
-        item.price = data['price']
-        item.image_url = data['image_url']
-        db.session.commit()
-        return jsonify(item.as_dict())
+    user = User.query.filter_by(username=data['username']).first()
+    if user and bcrypt.check_password_hash(user.password, data['password']):
+        access_token = create_access_token(identity={'username': user.username})
+        return jsonify({'access_token': access_token}), 200
     else:
-        return jsonify({'error': 'Item not found'}), 404
+        return jsonify({'error': 'Invalid credentials'}), 401
 
-@app.route('/menu/<int:item_id>', methods=['DELETE'])
-def delete_menu_item(item_id):
-    item = MenuItem.query.get(item_id)
-    if item:
-        db.session.delete(item)
-        db.session.commit()
-        return jsonify({'message': 'Item deleted'})
-    else:
-        return jsonify({'error': 'Item not found'}), 404
-
-# Helper method to serialize data
-def to_dict(self):
-    return {c.name: getattr(self, c.name) for c in self.__table__.columns}
-MenuItem.as_dict = to_dict
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# Protected Route Example
+@app.route('/protected', methods=['GET'])
+@jwt_required()
+def protected():
+    current_user = get_jwt_identity()
+    return jsonify({'message': f'Hello, {current_user["username"]}'}), 200
 
