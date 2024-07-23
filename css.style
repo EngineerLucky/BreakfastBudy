@@ -1,0 +1,141 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Hero section styles */
+.hero {
+    background-color: #333;
+    color: white;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.hero button:hover {
+    background-color: #0056b3;
+}
+
+/* Navigation styles */
+.nav {
+    background-color: #007bff;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Features section styles */
+.features {
+    background: #fff;
+    padding: 50px 20px;
+}
+
+.features h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.feature-item img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.feature-item h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.feature-item p {
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+/* About section styles */
+.about {
+    background: #fff;
+    padding: 50px 20px;
+}
+
+.about h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .nav a {
+        display: block;
+        padding: 10px;
+    }
+
+    .feature-item img {
+        max-width: 100px;
+    }
+
+    .about p {
+        font-size: 1em;
+    }
+}
