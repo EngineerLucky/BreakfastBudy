@@ -44,16 +44,20 @@
             text-decoration: none;
             color: #007bff;
         }
-        .features, .about {
-            padding: 50px 20px;
-            background: #fff;
+        .features {
+            margin: 50px auto;
+            max-width: 900px;
         }
-        .feature-item {
-            margin: 20px 0;
+        .feature {
+            margin-bottom: 30px;
         }
-        .feature-item img {
-            max-width: 100px;
+        .feature img {
+            max-width: 100%;
             height: auto;
+        }
+        .about {
+            margin: 50px auto;
+            max-width: 900px;
         }
     </style>
 </head>
@@ -69,27 +73,25 @@
         <a href="#login">Login</a>
     </div>
     <div class="features">
-        <h2>Features</h2>
-        <div class="feature-item">
-            <img src="{{ url_for('static', filename='feature1.png') }}" alt="Feature 1">
-            <h3>Feature 1</h3>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/feature1.jpg') }}" alt="Feature 1">
+            <h2>Feature 1</h2>
             <p>Description of Feature 1</p>
         </div>
-        <div class="feature-item">
-            <img src="{{ url_for('static', filename='feature2.png') }}" alt="Feature 2">
-            <h3>Feature 2</h3>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/feature2.jpg') }}" alt="Feature 2">
+            <h2>Feature 2</h2>
             <p>Description of Feature 2</p>
         </div>
-        <div class="feature-item">
-            <img src="{{ url_for('static', filename='feature3.png') }}" alt="Feature 3">
-            <h3>Feature 3</h3>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/feature3.jpg') }}" alt="Feature 3">
+            <h2>Feature 3</h2>
             <p>Description of Feature 3</p>
         </div>
     </div>
     <div class="about">
-        <h2>About</h2>
-        <p>Inspired by a need for a streamlined canteen management system. This is a portfolio project for Holberton School. For more details, visit <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>.</p>
+        <h2>About Us</h2>
+        <p>This project was inspired by our need to streamline canteen operations. As part of our portfolio for Holberton School, we aimed to build a solution that simplifies food management and ordering. For more details, visit <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>.</p>
     </div>
 </body>
 </html>
-
