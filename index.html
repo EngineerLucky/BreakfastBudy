@@ -46,19 +46,14 @@
         }
         .features, .about {
             padding: 50px 20px;
+            background: #fff;
         }
-        .features h2, .about h2 {
-            margin-bottom: 20px;
+        .feature-item {
+            margin: 20px 0;
         }
-        .feature {
-            margin-bottom: 20px;
-        }
-        .feature img {
-            max-width: 100%;
+        .feature-item img {
+            max-width: 100px;
             height: auto;
-        }
-        .feature h3 {
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -74,26 +69,26 @@
         <a href="#login">Login</a>
     </div>
     <div class="features">
-        <h2>Key Features</h2>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/feature1.jpg') }}" alt="Feature 1">
-            <h3>Easy Ordering</h3>
-            <p>Simple and intuitive interface for placing orders.</p>
+        <h2>Features</h2>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='feature1.png') }}" alt="Feature 1">
+            <h3>Feature 1</h3>
+            <p>Description of Feature 1</p>
         </div>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/feature2.jpg') }}" alt="Feature 2">
-            <h3>Real-time Updates</h3>
-            <p>Stay updated with real-time notifications and order tracking.</p>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='feature2.png') }}" alt="Feature 2">
+            <h3>Feature 2</h3>
+            <p>Description of Feature 2</p>
         </div>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/feature3.jpg') }}" alt="Feature 3">
-            <h3>Secure Payments</h3>
-            <p>Safe and secure payment options for a hassle-free experience.</p>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='feature3.png') }}" alt="Feature 3">
+            <h3>Feature 3</h3>
+            <p>Description of Feature 3</p>
         </div>
     </div>
     <div class="about">
-        <h2>About BreakfastBuddy</h2>
-        <p>Inspired by the need to streamline canteen management and provide a seamless experience for both staff and customers, BreakfastBuddy was created to offer an all-in-one solution. Our journey began as a portfolio project for Holberton School, and it has grown into a comprehensive tool designed to make canteen operations more efficient and enjoyable. Learn more about our story and the team behind BreakfastBuddy.</p>
+        <h2>About</h2>
+        <p>Inspired by a need for a streamlined canteen management system. This is a portfolio project for Holberton School. For more details, visit <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>.</p>
     </div>
 </body>
 </html>
