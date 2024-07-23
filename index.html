@@ -4,94 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BreakfastBuddy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background: #f4f4f4;
-        }
-        .hero {
-            background-color: #333;
-            color: white;
-            padding: 100px 20px;
-        }
-        .hero h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        .hero p {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
-        .hero button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        .hero button:hover {
-            background-color: #0056b3;
-        }
-        .nav {
-            margin: 20px;
-        }
-        .nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #007bff;
-        }
-        .features {
-            margin: 50px auto;
-            max-width: 900px;
-        }
-        .feature {
-            margin-bottom: 30px;
-        }
-        .feature img {
-            max-width: 100%;
-            height: auto;
-        }
-        .about {
-            margin: 50px auto;
-            max-width: 900px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- Cover Image Section -->
     <div class="hero">
+        <img src="{{ url_for('static', filename='images/cover-image.jpg') }}" alt="Cover Image" class="cover-image">
         <h1>BreakfastBuddy</h1>
         <p>Your ultimate canteen management solution</p>
         <button onclick="window.location.href='/menu';">Get Started</button>
     </div>
+    
+    <!-- Navigation Elements -->
     <div class="nav">
-        <a href="#menu">Menu</a>
-        <a href="#register">Register</a>
-        <a href="#login">Login</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="/menu">Menu</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
     </div>
-    <div class="features">
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/feature1.jpg') }}" alt="Feature 1">
-            <h2>Feature 1</h2>
-            <p>Description of Feature 1</p>
+    
+    <!-- Features Section -->
+    <div id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='images/feature1.png') }}" alt="Feature 1">
+            <h3>Feature 1</h3>
+            <p>Description of Feature 1. Explain what makes this feature valuable.</p>
         </div>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/feature2.jpg') }}" alt="Feature 2">
-            <h2>Feature 2</h2>
-            <p>Description of Feature 2</p>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='images/feature2.png') }}" alt="Feature 2">
+            <h3>Feature 2</h3>
+            <p>Description of Feature 2. Highlight key aspects of this feature.</p>
         </div>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/feature3.jpg') }}" alt="Feature 3">
-            <h2>Feature 3</h2>
-            <p>Description of Feature 3</p>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='images/feature3.png') }}" alt="Feature 3">
+            <h3>Feature 3</h3>
+            <p>Description of Feature 3. Describe why this feature is important.</p>
         </div>
     </div>
-    <div class="about">
-        <h2>About Us</h2>
-        <p>This project was inspired by our need to streamline canteen operations. As part of our portfolio for Holberton School, we aimed to build a solution that simplifies food management and ordering. For more details, visit <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>.</p>
+    
+    <!-- About Section -->
+    <div id="about" class="about">
+        <h2>About</h2>
+        <p>Inspired by a need to streamline canteen management, BreakfastBuddy was created to simplify daily operations. This project is a part of my portfolio for Holberton School. It represents my commitment to practical solutions and user-centric design.</p>
     </div>
 </body>
 </html>
+
