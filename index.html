@@ -7,48 +7,48 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- Cover Image Section -->
+    <!-- Hero Section -->
     <div class="hero">
-        <img src="{{ url_for('static', filename='images/cover-image.jpg') }}" alt="Cover Image" class="cover-image">
         <h1>BreakfastBuddy</h1>
         <p>Your ultimate canteen management solution</p>
         <button onclick="window.location.href='/menu';">Get Started</button>
     </div>
-    
-    <!-- Navigation Elements -->
+
+    <!-- Navigation Section -->
     <div class="nav">
+        <a href="#menu">Menu</a>
+        <a href="#register">Register</a>
+        <a href="#login">Login</a>
         <a href="#features">Features</a>
         <a href="#about">About</a>
-        <a href="/menu">Menu</a>
-        <a href="/register">Register</a>
-        <a href="/login">Login</a>
     </div>
-    
+
     <!-- Features Section -->
     <div id="features" class="features">
         <h2>Features</h2>
         <div class="feature-item">
-            <img src="{{ url_for('static', filename='images/feature1.png') }}" alt="Feature 1">
-            <h3>Feature 1</h3>
-            <p>Description of Feature 1. Explain what makes this feature valuable.</p>
+            <img src="{{ url_for('static', filename='images/feature1.png') }}" alt="Menu Management">
+            <h3>Menu Management</h3>
+            <p>Easily add, update, and remove menu items with an intuitive interface. Manage categories and pricing to keep your menu up-to-date and organized.</p>
         </div>
         <div class="feature-item">
-            <img src="{{ url_for('static', filename='images/feature2.png') }}" alt="Feature 2">
-            <h3>Feature 2</h3>
-            <p>Description of Feature 2. Highlight key aspects of this feature.</p>
+            <img src="{{ url_for('static', filename='images/feature2.png') }}" alt="User Registration">
+            <h3>User Registration</h3>
+            <p>Allow users to register and create accounts. Manage user profiles and permissions to ensure secure access to different features of the application.</p>
         </div>
         <div class="feature-item">
-            <img src="{{ url_for('static', filename='images/feature3.png') }}" alt="Feature 3">
-            <h3>Feature 3</h3>
-            <p>Description of Feature 3. Describe why this feature is important.</p>
+            <img src="{{ url_for('static', filename='images/feature3.png') }}" alt="Order Processing">
+            <h3>Order Processing</h3>
+            <p>Streamline order handling with real-time updates. Track orders from creation to completion and manage order statuses efficiently.</p>
         </div>
     </div>
-    
+
     <!-- About Section -->
     <div id="about" class="about">
         <h2>About</h2>
-        <p>Inspired by a need to streamline canteen management, BreakfastBuddy was created to simplify daily operations. This project is a part of my portfolio for Holberton School. It represents my commitment to practical solutions and user-centric design.</p>
+        <p>BreakfastBuddy was inspired by the need to simplify canteen management. Initially, managing a small café's operations proved to be cumbersome, so we created this application to streamline menu management, user registration, and order processing. This project is part of my portfolio for Holberton School. You can learn more about Holberton School <a href="https://www.holbertonschool.com" target="_blank">here</a>.</p>
     </div>
 </body>
 </html>
+
 
